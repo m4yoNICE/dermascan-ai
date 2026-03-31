@@ -22,6 +22,12 @@ Derm Foundation Feature Extraction Model:
 - `POST /analyze` — accepts raw image bytes, returns skin condition prediction and severity
 - `GET /health` — health check
 
+
+## File Structure
+- embedder.py : contains the embeddings from derm-foundation model to be loaded in server.py
+- server.py: inference endpoint
+- preprocessing\preprocess_image.py : preprocess image to match pretrained model encoder (rgb , 448x448)
+  
 ## Model Architecture
 
 Two-stage pipeline using Google Derm Foundation as a frozen feature extractor with Logistic Regression classifier heads.
