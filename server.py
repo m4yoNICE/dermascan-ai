@@ -1,7 +1,5 @@
 from fastapi import FastAPI, Request, HTTPException
 import os
-import sys
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../dermfoundation"))
 
 from embedder import get_embedding
 from preprocessing.preprocess_image import ImagePreprocessingError
@@ -11,7 +9,7 @@ import uvicorn
 
 app = FastAPI()
 
-BASE = os.path.join(os.path.dirname(__file__), "../trained_data_two_stage")
+BASE = os.path.join(os.path.dirname(__file__), "trained_data_two_stage")
 CONFIDENCE_THRESHOLD = 0.6
 
 print("Loading Stage 1 condition model...")
@@ -106,4 +104,4 @@ def health():
     return {"status": "ok"}
 
 if __name__ == '__main__':
-    uvicorn.run(app, host='0.0.0.0', port=5000, workers=1)
+    uvicorn.run(app, host='0.0.0.0', port=7860, workers=1)
