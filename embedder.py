@@ -11,7 +11,8 @@ from preprocessing.preprocess_image import (
 )
 
 CACHE_DIR = os.path.expanduser("~/.cache/huggingface")
-model_dir = snapshot_download(repo_id="google/derm-foundation", cache_dir=CACHE_DIR)
+HF_TOKEN = os.environ.get("HF_TOKEN")
+model_dir = snapshot_download(repo_id="google/derm-foundation", cache_dir=CACHE_DIR, token=HF_TOKEN)
 model = saved_model_load(model_dir)
 infer = model.signatures["serving_default"]
 
