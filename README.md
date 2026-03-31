@@ -12,7 +12,7 @@ pinned: false
 
 FastAPI inference server for DermaScan+, a mobile skin condition detection app.
 
-derm foundation model: 
+Derm Foundation Feature Extraction Model: 
 - https://developers.google.com/health-ai-developer-foundations/derm-foundation
 - https://huggingface.co/google/derm-foundation
 
