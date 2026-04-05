@@ -3,6 +3,7 @@ import os
 
 from embedder import get_embedding
 from preprocessing.preprocess_image import ImagePreprocessingError
+from preprocessing.check_image_quality import check_image_quality
 import joblib
 import numpy as np
 import uvicorn
@@ -98,6 +99,11 @@ async def analyze(request: Request):
     except Exception as e:
         print(f"  Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/check-quality")
+async def check_quality(request: Request):
+    image_data = await request.body()
+    return check_image_quality(image_data)
 
 @app.get("/health")
 def health():
